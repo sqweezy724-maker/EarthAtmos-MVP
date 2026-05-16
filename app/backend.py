@@ -17,6 +17,7 @@ from pydantic import BaseModel
 from pathlib import Path
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut, GeocoderServiceError
+from fastapi.middleware.cors import CORSMiddleware
 
 from shared.features import (
     BASE_LAG_COLS,
@@ -39,7 +40,12 @@ BASE_DIR   = Path(__file__).resolve().parent.parent
 MODELS_DIR = BASE_DIR / "models"
 
 app = FastAPI(title="EarthAtmos API", version="4.1")
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # =========================
 # LOAD MODELS
 # =========================
