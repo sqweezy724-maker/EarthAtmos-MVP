@@ -1,0 +1,14 @@
+node_modules/
+__pycache__/
+dist/
+build/
+.venv/
+
+*.pyc
+*.pyo
+
+frontend/node_modules/
+
+# optional cache
+.vscode/
+.idea/
