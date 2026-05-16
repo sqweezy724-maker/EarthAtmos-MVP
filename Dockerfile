@@ -11,4 +11,5 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["python", "-m", "uvicorn", "app.backend:app", "--host", "0.0.0.0", "--port", "8080"]
+# shell form — переменные окружения раскрываются
+CMD python -m uvicorn app.backend:app --host 0.0.0.0 --port $PORT
